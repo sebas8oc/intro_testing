@@ -1,0 +1,77 @@
+Resumen
+Tipos de pruebas
+
+Conceptos
+
+SUT (System Under Test): Sujeto Bajo Prueba, por ejemplo, Person sería nuestro SUT, no necesariamente tiene que ser un sistema.
+
+Validar: A la hora de validar resolvemos la siguiente pregunta: ¿estamos construyendo el sistema correcto?, por lo general, en la capa
+de requerimientos con el cliente y si le da valor a él.
+
+
+Verificar: Cuando ya se hacen pruebas, se verifica teniendo en mente la pregunta:
+¿estamos construyendo el sistema correctamente?
+casi obviando que ya se produce valor al cliente.
+
+
+En todas las capas se pueden hacer pruebas, incluso sin código, como en los UML o en la revisión con el equipo de Scrum.
+.
+Tabla capas Vs detalle
+.
+
+Pruebas Funcionales
+Son las que validan que se cumplan los requerimientos de valor para el cliente
+(como guardar bien los buenos datos de un usuario); hasta este punto es lo que hemos hecho en VS code.
+Por norma general, las pruebas unitarias las entrega el desarrollador, el tester se
+empieza a involucrar en las pruebas de integración o E2E.
+
+
+Pruebas No Funcionales
+Verifican más el óptimo manejo de los recursos del software, no el cumplimiento de requisitos
+persé, como lo son pruebas de: +rendimiento +carga o estabilidad +estrés +usabilidad +seguridad.
+Estas pruebas no necesariamente deben estar desde el principio.
+
+
+NOTA: HAy una nueva área de pruebas No Funcionales que se
+llama 🐒 Ingeniería del caos, 🐒 su pionero es Netflix.
+Consiste en desconectar servicios en producción, como por ejemplo,
+desconectar una BD para ver como reacciona el equipo y establecer soluciones.
+⛔ ¡*Es muy pegrilossoo, MUY PEGRILOOSSOO!! ⛔
+
+
+
+***************************************************** Resumen ******************************************************
+
+Metodologías
+
+TDD (Test Driven Development): Desarrollo guiado por pruebas, donde primero se hacen las pruebas antes de escribir el código (primero los "expects").
+
+BDD (Behavior Driven Development): Desarrollo guiado por comportamiento de acuerdo a los requisitos y luego las pruebas.
+
+Mantra "AAA" para hacer pruebas
+
+Arrange | Given: Preparar, dado algo.
+
+Act | When: Ejecutar, cuando.
+
+Assert | Then: Resolver hipótesis, entonces.
+
+Conceptos
+
+Falso Positivo: Cuando una prueba indica un error, pero todo está bien.
+Por ejemplo, al probar el método de suma de 1 + 1 y poner el "expect" en 5,
+es un falso positivo. En este caso, la prueba está mal.
+
+Falso Negativo: Son más comunes, ya que parece que todo está normal, pero
+no se ha identificado el error. El conjunto de pruebas debería ser más amplio.
+Esto sucede cuando solo probamos el "Happy Path", es decir, las condiciones en las que sabemos que el sistema funciona.
+Por ejemplo, en el Sistema Único de Test (SUT) de dividir,
+las primeras pruebas salieron bien porque no se tomó en cuenta la división entre cero (0),
+luego se hizo la prueba y el refactor. En caso de falso negativo, lo mejor es aplicar TDD.
+
+Sistema Legacy: Son sistemas que requieren agregar pruebas a algo funcional, incluso en paralelo.
+En estos casos, es necesario refactorizar los métodos enormes en métodos más pequeños para realizar pruebas
+unitarias. Los sistemas legacy a menudo carecen de una buena arquitectura.
+
+Clean Architecture: Este patrón lleva buenas prácticas desde el principio.
+Cada método está bien dividido y con responsabilidades adecuadas, lo que facilita la adición de un conjunto de pruebas.
